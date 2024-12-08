@@ -23,7 +23,7 @@ module.exports = {
       path: process.env.REMOTE_PATH,
       'pre-setup': 'apt-get install git ; ls -la',
       'post-setup': 'ls -la',
-      'post-deploy': `npm install && pm2 reload ecosystem.config.js --env production && scp .env.production ${process.env.REMOTE_USER}@${process.env.REMOTE_HOST}:${process.env.REMOTE_PATH}`,
+      'post-deploy': `npm install && pm2 reload ecosystem.config.js --env production`
     },
   },
 };
