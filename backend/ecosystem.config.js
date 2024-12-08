@@ -15,7 +15,7 @@ module.exports = {
 
   deploy: {
     production: {
-      key: '../../private.pem',
+      key: '../../praktikum-ubuntu.pem',
       user: process.env.REMOTE_USER,
       host: process.env.REMOTE_HOST,
       ref: 'origin/master',
