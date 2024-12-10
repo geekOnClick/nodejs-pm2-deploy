@@ -3,7 +3,8 @@ require('dotenv').config({ path: '.env.deploy' });
 module.exports = {
   apps: [{
     name: 'frontend-pm2',
-    script: './build/index.html',
+    script: 'npx',
+    args: 'serve -s build -p 7000'
   }],
 
   deploy: {
