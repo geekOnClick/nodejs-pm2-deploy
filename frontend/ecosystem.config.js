@@ -3,8 +3,8 @@ require('dotenv').config({ path: '.env.deploy' });
 module.exports = {
   apps: [{
     name: 'frontend-pm2',
-    script: 'npx',
-    args: 'serve -s build -p 7000'
+    script: 'serve',
+    args: '-s build -p 7000'
   }],
 
   deploy: {
@@ -15,7 +15,7 @@ module.exports = {
       ref: process.env.REF,
       repo: process.env.REPO,
       path: process.env.REMOTE_PATH,
-      'post-deploy': 'cd frontend && npm i && npm run build && pm2 startOrRestart ecosystem.config.js --env production',
+      'post-deploy': 'cd frontend && npm i && npm run build && npm i -g serve && pm2 startOrRestart ecosystem.config.js --env production',
     },
   },
 };
