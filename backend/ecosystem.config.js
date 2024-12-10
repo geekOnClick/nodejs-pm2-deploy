@@ -2,28 +2,21 @@ require('dotenv').config({ path: '.env.deploy' });
 
 module.exports = {
   apps: [{
-    name: 'backend',
+    name: 'backend-pm2',
     script: 'npm',
     args: 'run start',
-    env: {
-      NODE_ENV: 'development',
-    },
-    env_production: {
-      NODE_ENV: 'production',
-    },
   }],
 
   deploy: {
     production: {
-      key: '../praktikum-ubuntu.pem',
+      key: 'C:\\\\Users\\\\Alex\\\\.ssh\\\\praktikum-ubuntu.pem',
       user: process.env.REMOTE_USER,
       host: process.env.REMOTE_HOST,
-      ref: 'origin/master',
+      ref: process.env.REF,
       repo: process.env.REPO,
       path: process.env.REMOTE_PATH,
-      'pre-setup': 'apt-get install git ; ls -la',
-      'post-setup': 'ls -la',
-      'post-deploy': `cd ./backend && npm install && pm2 reload ecosystem.config.js --env production`
+      // 'pre-deploy-local': `scp -i C:/Users/Alex/.ssh/praktikum-ubuntu.pem ./.env ${process.env.REMOTE_USER}@${process.env.REMOTE_HOST}:${process.env.REMOTE_PATH}`,
+      'post-deploy': 'cd backend && npm i && pm2 startOrRestart ecosystem.config.js --env production',
     },
   },
 };
