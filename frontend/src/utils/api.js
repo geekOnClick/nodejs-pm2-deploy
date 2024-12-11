@@ -139,6 +139,6 @@ class Api {
   }
   }
   // Замените на адрес вашего бэкенда
-  const api = new Api('api.nomorepartiesco.ru');
+  const api = new Api('http://geekonclick-api.nomorepartiesco.ru');
 
   export default api;
