@@ -15,7 +15,7 @@ module.exports = {
       ref: process.env.REF,
       repo: process.env.REPO,
       path: process.env.REMOTE_PATH,
-      'pre-deploy-local': `scp -i C:/Users/Alex/.ssh/praktikum-ubuntu.pem ./.env ${process.env.REMOTE_USER}@${process.env.REMOTE_HOST}:${process.env.REMOTE_PATH}`,
+      'pre-deploy-local': `scp -i C:/Users/Alex/.ssh/praktikum-ubuntu.pem ./.env ${process.env.REMOTE_USER}@${process.env.REMOTE_HOST}:${process.env.REMOTE_PATH}/current/backend`,
       'post-deploy': 'cd backend && npm i && pm2 startOrRestart ecosystem.config.js --env production',
     },
   },
