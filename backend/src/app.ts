@@ -6,10 +6,9 @@ import cookieParser from 'cookie-parser';
 import { errors } from 'celebrate';
 import cors from 'cors';
 import errorHandler from './middlewares/error-handler';
-import { DB_ADDRESS } from './config';
+import { DB_ADDRESS, PORT } from './config';
 import routes from './routes';
 
-const { PORT = 3000 } = process.env;
 const app = express();
 
 // Только для локальных тестов. Не используйте это в продакшене
