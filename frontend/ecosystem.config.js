@@ -9,7 +9,7 @@ module.exports = {
 
   deploy: {
     production: {
-      key: 'C:\\\\Users\\\\Alex\\\\.ssh\\\\praktikum-ubuntu.pem',
+      key: process.env.KEY,
       user: process.env.REMOTE_USER,
       host: process.env.REMOTE_HOST,
       ref: process.env.REF,
